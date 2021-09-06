@@ -197,7 +197,7 @@
       scaffolding.setUsername("player####".replace(/#/g, () => Math.floor(Math.random() * 10)));
       scaffolding.setAccentColor("#ff4c4c");
 
-      scaffolding.addCloudProvider(new Scaffolding.Cloud.WebSocketProvider("wss://clouddata.turbowarp.org", "p4-@index (1) (6) (5) (5) (1) (1) (3).sb3"));
+      scaffolding.addCloudProvider(new Scaffolding.Cloud.LocalStorageProvider("cloudvariables:p4-@index (1) (6) (5) (5) (1) (1) (3).sb3"));
 
       if (false) {
         const greenFlagButton = document.createElement("img");
@@ -291,7 +291,7 @@
       });
 
       if (typeof ScaffoldingAddons !== "undefined") {
-        ScaffoldingAddons.run(scaffolding, {"gamepad":false,"pointerlock":false,"specialCloudBehaviors":true});
+        ScaffoldingAddons.run(scaffolding, {"specialCloudBehaviors":true,"gamepad":false,"pointerlock":false});
       }
 
       for (const extension of []) {
@@ -349,7 +349,7 @@
       await scaffolding.loadProject(projectData);
       setProgress(1);
       loadingScreen.hidden = true;
-      if (false) {
+      if (true) {
         scaffolding.start();
       } else {
         launchScreen.hidden = false;
